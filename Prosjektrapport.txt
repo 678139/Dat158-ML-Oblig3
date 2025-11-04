@@ -1,16 +1,13 @@
 BILMERKEGJENKJENNING
-===================
 
 Navn: Mahdi Mohammadi og David-Patrick Bonsu Obeng
 Dato: 2.11.2025
 
 PROBLEMBESKRIVELSE
-==================
 
 I dette prosjektet har vi utviklet et system som kan gjenkjenne bilmerker basert på bilder. Hovedideen er at brukeren kan laste opp et bilde av en bil, og systemet skal automatisk forutsi hvilket bilmerke det er. Systemet vårt er trent å gjenkjenne fire bilmerker: BMW, Toyota, Audi og Mercedes. Målet med prosjektet er å lage en enkel men fungerende prototype som viser hvordan maskinlæring kan brukes i praksis for bilmerkegjenkjenning.
 
 METRIKKER
-=========
 
 For å vurdere hvor godt modellen fungerer, brukte vi accuracy (treffsikkerhet) som hovedmåling. Denne metrikken viser hvor mange av bilene som ble riktig klassifisert av systemet. Målet vårt er å oppnå minst 60% treffsikkerhet, og i testene våre fikk vi resultater som varierte fra 40% til 100%, avhengig av datasettet og bildene som ble brukt.
 
@@ -19,7 +16,6 @@ Vi observerte at i mange tilfeller klarte modellen å treffe riktig merke på al
 Siden dette er et klassifikasjonsproblem med fire klasser, ville tilfeldig gjetting gitt omtrent 25% treffsikkerhet. Modellen vår klarte 55,5%, altså mer enn dobbelt så bra som ren tilfeldighet. Dette viser at systemet faktisk lærer mønstre i dataene, selv om det er rom for forbedring.
 
 DATA
-====
 
 Vi hentet data fra kaggle.com som inneholder mange åpne bildesett av biler. Totalt brukte vi 2113 bilder fordelt på fire merker:
 
@@ -35,7 +31,6 @@ Et viktig poeng i datasettet vårt er at klassene er ubalanserte. Toyota og Audi
 Når det gjelder etiske hensyn, har vi kun brukt offentlig tilgjengelige bilder uten synlige registreringsnumre eller personer. Vi har vært bevisst på personvern og forsøkt å bruke bilder som ikke identifiserer enkeltpersoner.
 
 MODELLERING
-===========
 
 Vi valgte k-Nearest Neighbor (k-NN) som maskinlæringsmodell, med parameteren k=5. Denne algoritmen fungerer ved å sammenligne et nytt bilde med alle treningsbildene, finne de fem mest like, og deretter stemme på hvilket merke som er mest sannsynlig.
 
@@ -47,7 +42,6 @@ Fordeler med k-NN:
 Selv om k-NN ikke er den mest avanserte algoritmen, er den svært nyttig i tidlige faser av et prosjekt for å etablere en baseline og forstå hvordan dataene oppfører seg.
 
 YTELSE
-======
 
 • Toyota: 84% recall - veldig bra
 • Audi: 44% recall - middels
@@ -65,7 +59,6 @@ Feilene vi observerte kom ofte fra:
 Et eksempel er at mørke Mercedes-biler ofte ble klassifisert som BMW, og grunnen kan være at begge merkene har mange bilder av mørke biler i datasettet.
 
 FORBEDRINGER
-============
 
 Det finnes flere måter vi kan forbedre modellen på:
 
@@ -80,12 +73,10 @@ Det finnes flere måter vi kan forbedre modellen på:
 Ved å kombinere alle disse tingene tror vi kan forbedre modellen betydelig.
 
 DEPLOYMENT
-==========
 
 For å gjøre systemet tilgjengelig for brukerne, laget vi en enkel webapp i Streamlit. Appen lar brukeren laste opp et bilde, og deretter kan de trykke på "Analyse" og se resultatet med sannsynlighet for hvert bilmerke.
 
 REFERANSER
-==========
 
 • https://www.kaggle.com/datasets/kshitij192/cars-image-dataset
 • https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands
